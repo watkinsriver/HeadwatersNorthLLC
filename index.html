@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Headwaters North LLC — Fractional CFO & Controller Services</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0D1117;
+    --surface: #151C25;
+    --surface-2: #1C2533;
+    --ink: #EDF0F4;
+    --ink-2: #8C96A6;
+    --ink-3: #4A5568;
+    --rule: #1F2D3D;
+    --rule-light: #2A3A4E;
+    --accent: #4A7FA5;
+    --accent-dim: #1E3A50;
+    --gold: #B8976A;
+    --gold-dim: #3A2E1E;
+  }
+
+  html { font-size: 16px; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 3rem;
+    border-bottom: 1px solid var(--rule);
+    background: var(--bg);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    text-decoration: none;
+  }
+
+  .logo-mark {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+
+  .logo-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: var(--ink);
+    text-transform: uppercase;
+    line-height: 1;
+  }
+
+  .logo-sub {
+    font-size: 0.6rem;
+    font-weight: 300;
+    letter-spacing: 0.18em;
+    color: var(--ink-2);
+    text-transform: uppercase;
+    line-height: 1;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .nav-link {
+    font-size: 0.8rem;
+    font-weight: 300;
+    letter-spacing: 0.06em;
+    color: var(--ink-2);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-link:hover { color: var(--ink); }
+
+  .nav-cta {
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    color: var(--gold);
+    text-decoration: none;
+    text-transform: uppercase;
+    border: 1px solid var(--gold-dim);
+    padding: 0.45rem 1rem;
+    border-radius: 3px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .nav-cta:hover { border-color: var(--gold); }
+
+  /* HERO */
+  .hero {
+    min-height: 88vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 3rem 5rem;
+    position: relative;
+    border-bottom: 1px solid var(--rule);
+    overflow: hidden;
+  }
+
+  .hero-bg-text {
+    position: absolute;
+    top: 50%;
+    right: -1rem;
+    transform: translateY(-55%);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(10rem, 22vw, 20rem);
+    font-weight: 300;
+    letter-spacing: -0.04em;
+    color: transparent;
+    -webkit-text-stroke: 1px #1C2B3A;
+    pointer-events: none;
+    user-select: none;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .hero-content {
+    max-width: 720px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 2rem;
+  }
+
+  .eyebrow-rule {
+    width: 32px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .eyebrow-text {
+    font-size: 0.68rem;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 2rem;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--ink-2);
+  }
+
+  .hero-sub {
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--ink-2);
+    max-width: 480px;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-gold {
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.8rem 2rem;
+    border-radius: 3px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .btn-gold:hover {
+    background: var(--gold);
+    color: var(--bg);
+  }
+
+  .btn-ghost {
+    font-size: 0.75rem;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+  }
+
+  .btn-ghost:hover { color: var(--ink); }
+
+  .btn-ghost::after {
+    content: '→';
+    font-size: 0.85rem;
+  }
+
+  /* CREDENTIALS BAR */
+  .creds {
+    background: var(--surface);
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    align-items: stretch;
+  }
+
+  .cred {
+    flex: 1;
+    padding: 1.75rem 3rem;
+    border-right: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .cred:last-child { border-right: none; }
+
+  .cred-icon {
+    width: 32px;
+    height: 32px;
+    background: var(--accent-dim);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .cred-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .cred-text strong {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--ink);
+    letter-spacing: 0.02em;
+    margin-bottom: 2px;
+  }
+
+  .cred-text span {
+    font-size: 0.72rem;
+    font-weight: 300;
+    color: var(--ink-2);
+    letter-spacing: 0.02em;
+  }
+
+  /* SERVICES */
+  .services-section {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .services-left {
+    padding: 5rem 3rem;
+    border-right: 1px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .section-label {
+    font-size: 0.65rem;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 1.5rem;
+  }
+
+  .services-left h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.4rem;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    color: var(--ink);
+  }
+
+  .services-left h2 em {
+    font-style: italic;
+    color: var(--ink-2);
+  }
+
+  .services-left-footer {
+    font-size: 0.78rem;
+    font-weight: 300;
+    color: var(--ink-3);
+    line-height: 1.7;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  .services-right {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .service-card {
+    padding: 3rem 2.5rem;
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    transition: background 0.2s;
+  }
+
+  .service-card:hover { background: var(--surface); }
+
+  .service-card:nth-child(2n) { border-right: none; }
+  .service-card:nth-last-child(-n+2) { border-bottom: none; }
+
+  .service-icon {
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--rule-light);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .service-icon svg {
+    width: 16px;
+    height: 16px;
+    stroke: var(--accent);
+  }
+
+  .service-card h3 {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--ink);
+    letter-spacing: 0.01em;
+    margin-bottom: 0.6rem;
+  }
+
+  .service-card p {
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: var(--ink-2);
+    line-height: 1.7;
+  }
+
+  /* APPROACH */
+  .approach {
+    padding: 6rem 3rem;
+    border-bottom: 1px solid var(--rule);
+    max-width: 100%;
+  }
+
+  .approach-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 4rem;
+    gap: 2rem;
+  }
+
+  .approach-header h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    max-width: 460px;
+    line-height: 1.15;
+  }
+
+  .approach-header h2 em {
+    font-style: italic;
+    color: var(--ink-2);
+  }
+
+  .approach-header p {
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: var(--ink-2);
+    max-width: 320px;
+    line-height: 1.8;
+    text-align: right;
+  }
+
+  .approach-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .approach-item {
+    padding: 2.5rem 2rem;
+    border-right: 1px solid var(--rule);
+    background: var(--surface);
+  }
+
+  .approach-item:last-child { border-right: none; }
+
+  .approach-marker {
+    font-size: 0.65rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+  }
+
+  .approach-item h4 {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.6rem;
+    letter-spacing: 0.01em;
+  }
+
+  .approach-item p {
+    font-size: 0.78rem;
+    font-weight: 300;
+    color: var(--ink-2);
+    line-height: 1.7;
+  }
+
+  /* CONTACT */
+  .contact-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 420px;
+  }
+
+  .contact-left {
+    background: var(--surface);
+    padding: 5rem 3rem;
+    border-right: 1px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .contact-left h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    color: var(--ink);
+    margin-bottom: 1rem;
+  }
+
+  .contact-left h2 em {
+    font-style: italic;
+    color: var(--ink-2);
+  }
+
+  .contact-left p {
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: var(--ink-2);
+    line-height: 1.8;
+    max-width: 380px;
+  }
+
+  .contact-detail {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  .contact-detail a {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 300;
+    color: var(--accent);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.4rem;
+    transition: color 0.15s;
+  }
+
+  .contact-detail a:hover { color: var(--ink); }
+
+  .contact-detail span {
+    font-size: 0.72rem;
+    color: var(--ink-3);
+    letter-spacing: 0.04em;
+  }
+
+  .contact-right {
+    padding: 5rem 3rem;
+    background: var(--bg);
+  }
+
+  .form-row {
+    margin-bottom: 1.25rem;
+  }
+
+  .form-label {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 0.5rem;
+  }
+
+  .form-input,
+  .form-select,
+  .form-textarea {
+    width: 100%;
+    background: var(--surface);
+    border: 1px solid var(--rule-light);
+    border-radius: 3px;
+    padding: 0.7rem 0.9rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.15s;
+    appearance: none;
+  }
+
+  .form-input::placeholder,
+  .form-textarea::placeholder { color: var(--ink-3); }
+
+  .form-input:focus,
+  .form-select:focus,
+  .form-textarea:focus { border-color: var(--accent); }
+
+  .form-textarea { resize: vertical; min-height: 90px; }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .form-submit {
+    width: 100%;
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.85rem 1rem;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .form-submit:hover {
+    background: var(--gold);
+    color: var(--bg);
+  }
+
+  .form-note {
+    font-size: 0.7rem;
+    font-weight: 300;
+    color: var(--ink-3);
+    text-align: center;
+    margin-top: 0.75rem;
+    letter-spacing: 0.02em;
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--rule);
+    padding: 2rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--surface);
+  }
+
+  .footer-left {
+    font-size: 0.72rem;
+    font-weight: 300;
+    color: var(--ink-3);
+    letter-spacing: 0.04em;
+  }
+
+  .footer-right {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .footer-right a {
+    font-size: 0.68rem;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .footer-right a:hover { color: var(--ink-2); }
+
+  /* THANK YOU */
+  .thank-you {
+    display: none;
+    padding: 2rem 0;
+    text-align: center;
+  }
+
+  .thank-you p {
+    font-size: 0.85rem;
+    color: var(--gold);
+    font-weight: 300;
+    letter-spacing: 0.04em;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 1.25rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { padding: 0 1.5rem 4rem; min-height: 70vh; }
+    .hero-bg-text { display: none; }
+    .creds { flex-direction: column; }
+    .cred { border-right: none; border-bottom: 1px solid var(--rule); padding: 1.25rem 1.5rem; }
+    .cred:last-child { border-bottom: none; }
+    .services-section { grid-template-columns: 1fr; }
+    .services-left { padding: 3rem 1.5rem; border-right: none; border-bottom: 1px solid var(--rule); }
+    .services-right { grid-template-columns: 1fr; }
+    .service-card { border-right: none !important; }
+    .service-card:nth-last-child(-n+2) { border-bottom: 1px solid var(--rule); }
+    .service-card:last-child { border-bottom: none; }
+    .approach { padding: 4rem 1.5rem; }
+    .approach-header { flex-direction: column; align-items: flex-start; }
+    .approach-header p { text-align: left; }
+    .approach-grid { grid-template-columns: 1fr 1fr; }
+    .approach-item { border-bottom: 1px solid var(--rule); }
+    .approach-item:nth-child(2n) { border-right: none; }
+    .approach-item:nth-last-child(-n+2) { border-bottom: none; }
+    .contact-section { grid-template-columns: 1fr; }
+    .contact-left { padding: 3rem 1.5rem; border-right: none; border-bottom: 1px solid var(--rule); }
+    .contact-right { padding: 3rem 1.5rem; }
+    .form-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; padding: 1.5rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="logo">
+    <div class="logo-mark">
+      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+        <!-- mountain peaks suggesting headwaters / source -->
+        <polyline points="4,26 12,10 16,16 22,6 28,26" stroke="#B8976A" stroke-width="1.25" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+        <!-- water line at base -->
+        <path d="M3,26 Q8,23.5 13,26 Q18,28.5 23,26 Q26,24.5 29,26" stroke="#4A7FA5" stroke-width="1" fill="none" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="logo-text">
+      <span class="logo-name">Headwaters North</span>
+      <span class="logo-sub">LLC &nbsp;·&nbsp; headwatersgo.com</span>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="#services" class="nav-link">Services</a>
+    <a href="#approach" class="nav-link">Approach</a>
+    <a href="#contact" class="nav-cta">Get in touch</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg-text" aria-hidden="true">North</div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <div class="eyebrow-rule"></div>
+      <span class="eyebrow-text">Fractional CFO &amp; Controller Services</span>
+    </div>
+    <h1>Financial clarity,<br><em>from the source.</em></h1>
+    <p class="hero-sub">Headwaters North brings senior financial leadership to organizations that need clear thinking, clean books, and a strategic partner — without the full-time overhead.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-gold">Start a conversation</a>
+      <a href="#services" class="btn-ghost">See what we do</a>
+    </div>
+  </div>
+</section>
+
+<div class="creds">
+  <div class="cred">
+    <div class="cred-icon">
+      <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="4" width="12" height="9" rx="1" stroke="#4A7FA5" stroke-width="1"/>
+        <path d="M5 4V3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1" stroke="#4A7FA5" stroke-width="1"/>
+        <line x1="5" y1="8" x2="11" y2="8" stroke="#4A7FA5" stroke-width="1"/>
+        <line x1="5" y1="10.5" x2="9" y2="10.5" stroke="#4A7FA5" stroke-width="1"/>
+      </svg>
+    </div>
+    <div class="cred-text">
+      <strong>Financial Management</strong>
+      <span>Budgeting, forecasting, and reporting</span>
+    </div>
+  </div>
+  <div class="cred">
+    <div class="cred-icon">
+      <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="8" cy="8" r="5.5" stroke="#4A7FA5" stroke-width="1"/>
+        <polyline points="8,5 8,8 10.5,9.5" stroke="#4A7FA5" stroke-width="1" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="cred-text">
+      <strong>Fractional Engagements</strong>
+      <span>Senior expertise, flexible commitment</span>
+    </div>
+  </div>
+  <div class="cred">
+    <div class="cred-icon">
+      <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polyline points="2,11 5,7 8,9 11,5 14,3" stroke="#4A7FA5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+        <polyline points="11,3 14,3 14,6" stroke="#4A7FA5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div class="cred-text">
+      <strong>Strategic Advisory</strong>
+      <span>Data-driven decisions at the leadership level</span>
+    </div>
+  </div>
+  <div class="cred">
+    <div class="cred-icon">
+      <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="2" width="5" height="5" rx="1" stroke="#4A7FA5" stroke-width="1"/>
+        <rect x="9" y="2" width="5" height="5" rx="1" stroke="#4A7FA5" stroke-width="1"/>
+        <rect x="2" y="9" width="5" height="5" rx="1" stroke="#4A7FA5" stroke-width="1"/>
+        <rect x="9" y="9" width="5" height="5" rx="1" stroke="#4A7FA5" stroke-width="1"/>
+      </svg>
+    </div>
+    <div class="cred-text">
+      <strong>Systems &amp; Automation</strong>
+      <span>QuickBooks, workflows, clean infrastructure</span>
+    </div>
+  </div>
+</div>
+
+<div class="services-section" id="services">
+  <div class="services-left">
+    <div>
+      <p class="section-label">What we offer</p>
+      <h2>The financial<br>leadership your<br>organization <em>needs</em></h2>
+    </div>
+    <p class="services-left-footer">
+      Headwaters North works with nonprofits, small businesses, and growing organizations that need senior financial oversight — but aren't ready for, or don't need, a full-time hire.
+    </p>
+  </div>
+  <div class="services-right">
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="8" cy="5" r="2.5" stroke="#4A7FA5" stroke-width="1"/>
+          <path d="M3 13c0-2.76 2.24-5 5-5s5 2.24 5 5" stroke="#4A7FA5" stroke-width="1" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <h3>Fractional CFO</h3>
+      <p>Senior financial leadership on a part-time basis. Cash flow strategy, board reporting, fundraising support, and long-range financial planning.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="3" width="12" height="10" rx="1" stroke="#4A7FA5" stroke-width="1"/>
+          <line x1="2" y1="6.5" x2="14" y2="6.5" stroke="#4A7FA5" stroke-width="1"/>
+          <line x1="5" y1="9.5" x2="7" y2="9.5" stroke="#4A7FA5" stroke-width="1"/>
+          <line x1="5" y1="11" x2="9" y2="11" stroke="#4A7FA5" stroke-width="1"/>
+        </svg>
+      </div>
+      <h3>Controller Services</h3>
+      <p>Month-end close, reconciliations, chart of accounts management, and audit-ready financial statements. The operational core, handled with precision.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polyline points="2,12 5,8 8,10 11,5 14,2" stroke="#4A7FA5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+          <line x1="2" y1="14" x2="14" y2="14" stroke="#4A7FA5" stroke-width="1"/>
+        </svg>
+      </div>
+      <h3>Budgeting &amp; Forecasting</h3>
+      <p>Annual budgets, rolling forecasts, and variance analysis that help leadership understand where they are — and where they're going.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="2" width="10" height="12" rx="1" stroke="#4A7FA5" stroke-width="1"/>
+          <line x1="5.5" y1="5.5" x2="10.5" y2="5.5" stroke="#4A7FA5" stroke-width="1"/>
+          <line x1="5.5" y1="8" x2="10.5" y2="8" stroke="#4A7FA5" stroke-width="1"/>
+          <line x1="5.5" y1="10.5" x2="8.5" y2="10.5" stroke="#4A7FA5" stroke-width="1"/>
+        </svg>
+      </div>
+      <h3>Grant &amp; Fund Accounting</h3>
+      <p>Nonprofit-specific financial management including restricted fund tracking, grant reporting, and compliance-ready records for auditors and funders.</p>
+    </div>
+  </div>
+</div>
+
+<div class="approach" id="approach">
+  <div class="approach-header">
+    <h2>How we <em>think</em><br>about the work</h2>
+    <p>Every engagement starts upstream — with the systems, assumptions, and habits that shape your financial picture before the numbers are ever reported.</p>
+  </div>
+  <div class="approach-grid">
+    <div class="approach-item">
+      <p class="approach-marker">Diagnose</p>
+      <h4>Understand the current state</h4>
+      <p>We start by learning how your finances actually work — the tools, the processes, and where things tend to break down.</p>
+    </div>
+    <div class="approach-item">
+      <p class="approach-marker">Stabilize</p>
+      <h4>Clean up and systematize</h4>
+      <p>Before advising, we make sure the foundation is solid. Reconciled accounts, accurate categorization, reliable close process.</p>
+    </div>
+    <div class="approach-item">
+      <p class="approach-marker">Advise</p>
+      <h4>Bring strategic perspective</h4>
+      <p>With clean data comes real insight. We translate financials into language leadership can act on — and flag what matters before it becomes a problem.</p>
+    </div>
+    <div class="approach-item">
+      <p class="approach-marker">Build</p>
+      <h4>Leave you stronger</h4>
+      <p>The goal isn't dependency — it's capability. We build systems and habits that work whether we're in the room or not.</p>
+    </div>
+  </div>
+</div>
+
+<div class="contact-section" id="contact">
+  <div class="contact-left">
+    <div>
+      <p class="section-label">Get in touch</p>
+      <h2>Let's talk<br>about your<br><em>organization.</em></h2>
+      <p>Whether you're looking for ongoing fractional support, a one-time financial review, or just want to understand your options — we're happy to have the conversation.</p>
+    </div>
+    <div class="contact-detail">
+      <a href="https://headwatersgo.com">headwatersgo.com</a>
+      <span>Salt Lake City, Utah</span>
+    </div>
+  </div>
+  <div class="contact-right">
+    <div id="hw-form">
+      <div class="form-grid">
+        <div class="form-row">
+          <label class="form-label" for="hw-name">Name</label>
+          <input class="form-input" type="text" id="hw-name" placeholder="Your name" autocomplete="name">
+        </div>
+        <div class="form-row">
+          <label class="form-label" for="hw-org">Organization</label>
+          <input class="form-input" type="text" id="hw-org" placeholder="Org or company">
+        </div>
+      </div>
+      <div class="form-row">
+        <label class="form-label" for="hw-email">Email</label>
+        <input class="form-input" type="email" id="hw-email" placeholder="you@organization.org" autocomplete="email">
+      </div>
+      <div class="form-row">
+        <label class="form-label" for="hw-interest">What are you looking for?</label>
+        <select class="form-select" id="hw-interest">
+          <option value="" disabled selected>Select one</option>
+          <option>Fractional CFO services</option>
+          <option>Controller / bookkeeping support</option>
+          <option>Budgeting &amp; forecasting</option>
+          <option>Nonprofit / grant accounting</option>
+          <option>General inquiry</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label class="form-label" for="hw-message">Anything else to share?</label>
+        <textarea class="form-textarea" id="hw-message" placeholder="A little context goes a long way…"></textarea>
+      </div>
+      <button class="form-submit" onclick="handleHWSubmit()">Send inquiry</button>
+      <p class="form-note">We'll respond within one business day.</p>
+    </div>
+    <div class="thank-you" id="hw-thankyou">
+      <p>Thank you — we'll be in touch shortly.</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-left">© 2025 Headwaters North LLC · All rights reserved</span>
+  <div class="footer-right">
+    <a href="#services">Services</a>
+    <a href="#approach">Approach</a>
+    <a href="#contact">Contact</a>
+    <a href="https://balancesweet.com">Balance Sweet ↗</a>
+  </div>
+</footer>
+
+<script>
+  function handleHWSubmit() {
+    const email = document.getElementById('hw-email').value.trim();
+    if (!email || !email.includes('@')) {
+      document.getElementById('hw-email').focus();
+      return;
+    }
+    document.getElementById('hw-form').style.display = 'none';
+    document.getElementById('hw-thankyou').style.display = 'block';
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
